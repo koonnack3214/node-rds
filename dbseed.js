@@ -1,4 +1,4 @@
-const mysql = require('mysql');
+import  mysql from 'mysql';
 
 const con = mysql.createConnection({
     host: "database-236.c7om482wqwx6.ap-southeast-2.rds.amazonaws.com",
@@ -6,11 +6,7 @@ const con = mysql.createConnection({
     password:"PgpYTfFPf7CiACBXnIPO"
 });
 
-con.connect(function(err) {
-    if (err) throw err;
-    console.log("Connected!");
-});
-
+// connect to the MySQL database
 con.connect(function(err) {
     if (err) throw err;
 
@@ -20,5 +16,7 @@ con.connect(function(err) {
     'email varchar(255), age int, PRIMARY KEY(id));', function(error, result, fields) {
         console.log(result);
     });
-    con.end();
 });
+
+
+export default con;
